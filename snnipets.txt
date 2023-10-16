@@ -1267,4 +1267,4 @@
 		],
 		"description": "use svg"
 	}
-}
+}snnipets.txt
