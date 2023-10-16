@@ -1,0 +1,99 @@
+.block-header {
+  display: grid;
+  gap: toRem(24);
+
+  &--center {
+    text-align: center;
+  }
+  &--inline {
+    grid-template-columns: minmax(auto, toRem(586)) minmax(auto, toRem(630));
+    justify-content: space-between;
+    align-items: end;
+    @media (max-width: $tablet) {
+      grid-template-columns: auto;
+    }
+  }
+  // .block-header_title
+
+  &_title {
+    color: var(--secondary);
+    @include adaptiveValue("font-size", 52, 32);
+    font-weight: 700;
+    line-height: 1.23;
+    transform: translate(0, 15%);
+    opacity: 0;
+    transition:
+      transform 0.5s,
+      opacity 0.5s;
+    ._watcher-view & {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+
+  // .block-header_title--big
+
+  &_title--big {
+    @include adaptiveValue("font-size", 64, 38);
+  }
+
+  // .block-header_title--white
+
+  &_title--white {
+    color: #fff;
+  }
+
+  // .block-header_text
+
+  &_text {
+    transform: translate(0, 15%);
+    opacity: 0;
+    transition:
+      transform 0.5s 0.3s,
+      opacity 0.5s 0.3s;
+    ._watcher-view & {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    p {
+      line-height: 1.55;
+    }
+    a {
+      font-weight: 700;
+      color: var( --bg-accent);
+      text-decoration: underline;
+      @media (any-hover: hover){
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+.text {
+  line-height: 1.5;
+  p {
+    &:not(:last-child) {
+      margin-bottom: toRem(15);
+    }
+  }
+}
+/*
+			<div class="block-header">
+				<h2 class="block-header_title">Professional for your
+					home
+					services
+				</h2>
+				<div class="block-header_text">
+					<p>You need help for home care? We are home care professionals focused in the US region. We provide
+						several
+						services
+						that
+						support home services</p>
+				</div>
+
+			</div>
+
+
+*/
